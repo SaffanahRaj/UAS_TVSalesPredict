@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">TV Sales Predict</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Saffanah Rajbiah</string>
+    <string name="nav_header_subtitle">221351135</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_fitur">Fitur</string>
+    <string name="menu_model">Model</string>
+    <string name="menu_dataset">Dataset</string>
+    <string name="menu_prediksi">Prediksi</string>
+    <string name="penjelasn">Dataset ini berisi data penjualan harian berdasarkan model TV yang berbeda-beda.\nSetiap entri merepresentasikan jumlah unit TV yang terjual pada tanggal tertentu untuk masing-masing model.
+        \nData ini diambil dari sumber publik Kaggle dan digunakan untuk pelatihan model prediksi.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+        <string name="home_title">TV Sales Prediction</string>
+        <string name="home_description">Aplikasi ini dirancang untuk memprediksi penjualan TV berdasarkan data historis yang diambil dari dataset publik Kaggle. Model prediksi menggunakan pendekatan machine learning yang telah diproses dan diuji sebelumnya.</string>
+        <string name="home_image_desc">Gambar Home</string>
+    <string name="fitur_image_desc">Ilustrasi fitur data Count</string>
+    <string name="fitur_section_title">Fitur yang Digunakan</string>
+    <string name="fitur_count_title">📊 Count</string>
+    <string name="fitur_count_desc">
+Fitur ini merepresentasikan jumlah penjualan TV harian.
+Nilai dari kolom Count digunakan sebagai input utama ke dalam model prediksi.
+Data ini diurutkan berdasarkan waktu untuk membentuk data time series.
+</string>
+    <string name="fitur_quote">“Model hanya menggunakan fitur Count sebagai input prediksi.”</string>
+    <string name="dataset">
+    Dataset ini berisi data penjualan harian berdasarkan model TV yang berbeda-beda.
+    Setiap entri merepresentasikan jumlah unit TV yang terjual pada tanggal tertentu untuk masing-masing model.
+    Data ini diambil dari sumber publik Kaggle dan digunakan untuk pelatihan model prediksi.
+</string>
+    <string name="satu">Kode ini dipakai buat nyiapin data sebelum dianalisis atau dimasukin ke model machine learning.\nPertama-tama, kolom \'Date\' diubah ke format tanggal supaya Python tahu itu data waktu.\nSetelah itu, data dijumlahin berdasarkan tanggal, jadi misalnya ada beberapa data di tanggal yang sama, semuanya dijumlahin.\nHasilnya disimpan di DataFrame baru yang namanya df_daily, dan kolom tanggal dijadiin sebagai indeks biar lebih rapi dan cocok buat analisis data time series.\nSetelah itu, kolom \'Count\' (jumlah data per tanggal) dinormalisasi biar skala nilainya seragam, yaitu antara 0 sampai 1.\nSebelum dinormalisasi, dicek dulu apakah ada nilai kosong, lalu diisi pakai data sebelumnya (forward fill).\nData juga diubah bentuknya jadi array dua dimensi karena itu syarat dari fungsi normalisasi. Skalernya sendiri dibuat pakai MinMaxScaler dari sklearn,\nlalu disimpan ke file scaler.pkl.
+        File ini bisa didownload dan dipakai lagi nanti, misalnya pas proses prediksi.</string>
+    <string name="dua">
+        Kode program tersebut digunakan untuk mempersiapkan data time series agar dapat digunakan dalam model prediksi, seperti LSTM. Variabel n_lookback menunjukkan jumlah data historis (60 langkah) yang digunakan sebagai input,
+        sedangkan n_forecast menunjukkan jumlah langkah ke depan (120 langkah) yang ingin diprediksi.
+        Program ini menggunakan metode sliding window, di mana setiap input X berisi 60 data sebelumnya, dan target output Y berisi 120 data setelahnya.
+        Proses ini dilakukan berulang kali sepanjang data y_scaled, kemudian hasilnya dikonversi menjadi array NumPy agar siap digunakan dalam pelatihan model machine learning.
+    </string>
+    <string name="tiga">
+        Kode di atas adalah pembuatan model deep learning berbasis LSTM (Long Short-Term Memory) yang digunakan untuk memprediksi data time series. Model terdiri dari dua lapisan LSTM, masing-masing dengan 64 dan 32 unit, diikuti oleh lapisan dropout untuk mencegah overfitting.
+        Lapisan pertama LSTM mengembalikan urutan (karena akan diikuti LSTM lain), sementara lapisan kedua tidak. Terakhir, model memiliki lapisan Dense sebagai output dengan jumlah neuron sesuai banyaknya prediksi (n_forecast).
+        Input model berupa data berurutan sepanjang n_lookback.
+    </string>
+    <string name="empat">
+        Gambar tersebut menunjukkan arsitektur model deep learning berbasis LSTM yang digunakan untuk memproses data time series. Model dimulai dengan layer LSTM pertama yang menerima input berdimensi (60, 1) dan menghasilkan output (60, 64),
+        lalu dilanjutkan dengan Dropout untuk mencegah overfitting. Kemudian, output masuk ke LSTM kedua yang hanya mengambil output terakhir, menghasilkan bentuk (32), dan kembali melewati Dropout. Terakhir, hasilnya masuk ke Dense layer yang menghasilkan output akhir berdimensi (120).
+        Model ini cocok untuk prediksi data berurutan seperti harga saham atau data sensor.
+    </string>
+    <string name="lima">
+        Kode tersebut menunjukkan tahapan pelatihan model neural network menggunakan Keras. Pada bagian model.compile, model disiapkan dengan menggunakan mean squared error sebagai fungsi kerugian, yang cocok untuk menghitung selisih antara nilai prediksi dan nilai asli pada masalah regresi.
+        Optimizer yang digunakan adalah Adam, yang membantu mempercepat proses belajar model. Selanjutnya, model.fit digunakan untuk mulai melatih model menggunakan data X sebagai input dan Y sebagai target output. Proses pelatihan dilakukan sebanyak 100 epoch dengan batch size 16, artinya data dilatih dalam kelompok kecil berisi 16 data.
+        Sebagian data (10%) otomatis dipisahkan untuk validasi agar bisa memantau performa model selama pelatihan, dan verbose=1 memastikan bahwa proses pelatihan ditampilkan secara detail di layar.
+    </string>
+    <string name="enam">
+        Kode ini dipakai untuk mempersiapkan input dari data terakhir agar bisa digunakan oleh model dalam memprediksi nilai berikutnya. Data input diambil sebanyak n_lookback titik terakhir, lalu dibentuk ulang sesuai format input model.
+        Setelah itu, model melakukan prediksi, dan hasilnya dikembalikan ke bentuk aslinya (sebelum normalisasi) menggunakan inverse_transform. Ini biasanya dilakukan setelah proses training untuk melihat prediksi model terhadap data terbaru.
+    </string>
+    <string name="arsitektur">
+        model yang digunakan adalah rnn menggunakan pendekatan LSTM dalam bentuk sequential dari keras.
+        moddel ini dibangun untuk memproses data time series (dalam hal ini, data penjualan TV per hari)
+    </string>
+    <string name="fitur">Tipe data: `float32`\n</string>
+    <string name="desk">
+    `Count` merupakan jumlah TV yang terjual setiap harinya dan digunakan sebagai indikator utama dalam proses prediksi. Data ini mencerminkan seberapa banyak produk berhasil terjual pada tanggal tertentu, sehingga penting untuk melihat pola permintaan dari waktu ke waktu. Dengan menganalisis nilai `Count`, model dapat mempelajari tren penjualan harian seperti kenaikan musiman, penurunan, atau fluktuasi lainnya yang berguna untuk meramalkan penjualan di periode berikutnya.
+    </string>
+    <string name="dataset_title">Informasi Dataset Penjualan TV</string>
+    <string name="dataset_description">Dataset ini berisi data penjualan TV berdasarkan tanggal dan model. Data dikumpulkan dari berbagai sumber dan bisa digunakan untuk analisis tren penjualan serta pelatihan model prediktif.</string>
+    <string name="dataset_link_text">Lihat dataset di Kaggle: https://www.kaggle.com/datasets</string>
+</resources>

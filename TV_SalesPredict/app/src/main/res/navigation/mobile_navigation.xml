@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.tvsalespredict.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_dataset"
+        android:name="com.example.tvsalespredict.ui.dataset.DatasetFragment"
+        android:label="Dataset"
+        tools:layout="@layout/fragment_dataset" />
+    <fragment
+        android:id="@+id/nav_fitur"
+        android:name="com.example.tvsalespredict.ui.fitur.FiturFragment"
+        android:label="@string/menu_fitur"
+        tools:layout="@layout/fragment_fitur" />
+    <fragment
+        android:id="@+id/nav_model"
+        android:name="com.example.tvsalespredict.ui.model.ModelFragment"
+        android:label="Model"
+        tools:layout="@layout/fragment_model" />
+    <fragment
+        android:id="@+id/nav_prediksi"
+        android:name="com.example.tvsalespredict.ui.prediksi.PrediksiFragment"
+        android:label="Prediksi"
+        tools:layout="@layout/fragment_prediksi" />
+
+</navigation>
